@@ -193,6 +193,7 @@ AprilTagNode::~AprilTagNode()
 void AprilTagNode::onCamera(const sensor_msgs::msg::Image::ConstSharedPtr& msg_img,
                             const sensor_msgs::msg::CameraInfo::ConstSharedPtr& msg_ci)
 {
+    //RCLCPP_INFO(get_logger(), "image callback");
     // precompute inverse projection matrix
     const Mat3 Pinv = Eigen::Map<const Eigen::Matrix<double, 3, 4, Eigen::RowMajor>>(msg_ci->p.data()).leftCols<3>().inverse();
 
